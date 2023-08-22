@@ -1,20 +1,31 @@
 import { useState } from "react";
-
+import { uuid } from "uuidv4";
 import "./App.css";
 
-function App() {
-  const [newItem, setNewItem] = useState("");
+interface Note {
+  id: string;
+  title: string;
+}
 
-    
-    function addToDoItem
+function App() {
+  const [newNote, setNewNote] = useState("");
+  const [notes, setNotes] = useState([] as Note[]);
+
+  function addNote(e: React.FormEvent) {
+    e.preventDefault();
+    setNotes((prevList) => [...prevList, { id: uuid(), title: newNote }]);
+  }
+
+  console.log(notes);
+
   return (
     <>
-      <form ONSUBMITE className="form">
+      <form onSubmit={addNote} className="form">
         <div className="form-row">
           <label htmlFor="name">Name</label>
           <input
-            value={newItem}
-            onChange={(e) => setNewItem(e.target.value)}
+            value={newNote}
+            onChange={(e) => setNewNote(e.target.value)}
             type="text"
             id="item"
           />
