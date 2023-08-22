@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 
 interface Note {
@@ -11,16 +11,19 @@ function App() {
   const [newNote, setNewNote] = useState("");
   const [notes, setNotes] = useState([] as Note[]);
 
-  function addNote(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setNotes((prevList) => [...prevList, { id: uuid(), title: newNote }]);
+
+    setNotes((prevList) => {
+      return [...prevList, { id: uuidv4(), title: newNote }];
+    });
   }
 
-  console.log(notes);
+  //   console.log(notes);
 
   return (
     <>
-      <form onSubmit={addNote} className="form">
+      <form onSubmit={handleSubmit} className="form">
         <div className="form-row">
           <label htmlFor="name">Name</label>
           <input
