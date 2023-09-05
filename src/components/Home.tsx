@@ -6,14 +6,17 @@ function HomePage() {
   const notes = getNotes();
 
   return (
-    <div>
-      {notes.map((note: Note) => (
-        <Link key={note.id} to={`/note/${note.id}`}>
-          <h2>{note.title}</h2>
-          <p>{note.content.substring(0, 100)}...</p>
-        </Link>
-      ))}
-    </div>
+    <>
+      awref
+      <div>
+        {notes.map((note: Note) => (
+          <Link key={note.id} to={`/note/${note.id}`}>
+            <h2>{note.title}</h2>
+            <p>{note.content.substring(0, 100)}...</p>
+          </Link>
+        ))}
+      </div>
+    </>
   );
 }
 
