@@ -1,58 +1,27 @@
-import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
-import "./App.css";
-
-interface Note {
-  id: string;
-  title: string;
-}
+import { Link, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import Details from "./components/NoteDetails";
+import NoteForm from "./components/NoteForm";
 
 function App() {
-  const [newNote, setNewNote] = useState("");
-  const [notes, setNotes] = useState([] as Note[]);
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-
-    setNotes((prevList) => {
-      return [...prevList, { id: uuidv4(), title: newNote }];
-    });
-  }
-
-  //   console.log(notes);
-
   return (
     <>
-      <form onSubmit={handleSubmit} className="form">
-        <div className="form-row">
-          <label htmlFor="name">Name</label>
-          <input
-            value={newNote}
-            onChange={(e) => setNewNote(e.target.value)}
-            type="text"
-            id="item"
-          />
-        </div>
-        <button className="btn">Add</button>
-      </form>
-      <h1 className="header"> ToDo List</h1>
-      <ul className="list">
-        <li>
-          <label>
-            <input type="checkbox" />
-            <span>Buy Milk</span>
-          </label>
-          <button className="btn">Delete</button>
-        </li>
-
-        <li>
-          <label>
-            <input type="checkbox" />
-            <span>Buy Milk</span>
-          </label>
-          <button className="btn">Delete</button>
-        </li>
-      </ul>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/edit">Create note</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/note/:id" element={<Details />} />
+        <Route path="/create" element={<NoteForm />} />
+        <Route path="/edit/:id" element={<NoteForm />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
     </>
   );
 }
