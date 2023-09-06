@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import Details from "./components/NoteDetails";
-import NoteForm from "./components/NoteForm";
-import Navigation from "./components/Navigation";
-import Page404 from "./components/Page404";
+import Home from "./pages/Home";
+import Details from "./pages/NoteDetails";
+import Navigation from "./pages/Navigation";
+import Page404 from "./pages/Page404";
+import CreateEditNote from "./pages/CreateEditNote";
 
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
           <Route path="note/:id" element={<Details />} />
-          <Route path="create" element={<NoteForm />} />
-          <Route path="edit/:id" element={<NoteForm />} />
+          <Route path="create" element={<CreateEditNote />} />
+          <Route path="edit/:id" element={<CreateEditNote />} />
           <Route path="*" element={<Page404 />} />
         </Route>
       </Routes>
