@@ -51,6 +51,7 @@ function Home() {
 
   return (
     <NoteListContainer>
+      Notes:
       {notes.map((note: Note) => (
         <StyledLink key={note.id} to={`/note/${note.id}`}>
           <NoteItem>
