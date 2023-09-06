@@ -11,7 +11,7 @@ export const setNote = (note: Note) => {
   localStorage.setItem("notes", JSON.stringify(notes));
 };
 
-export const deleteNote = (id: number) => {
+export const deleteNote = (id: string) => {
   let notes = getNotes();
   notes = notes.filter((note: Note) => note.id !== id);
   localStorage.setItem("notes", JSON.stringify(notes));
