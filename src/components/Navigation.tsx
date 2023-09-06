@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 const Nav = styled.nav`
@@ -25,18 +25,21 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Navigation: React.FC = () => {
+const Navigation = () => {
   return (
-    <Nav>
-      <NavList>
-        <NavItem>
-          <StyledLink to="/">Home</StyledLink>
-        </NavItem>
-        <NavItem>
-          <StyledLink to="/edit">Create Note</StyledLink>
-        </NavItem>
-      </NavList>
-    </Nav>
+    <>
+      <Nav>
+        <NavList>
+          <NavItem>
+            <StyledLink to="/">Home</StyledLink>
+          </NavItem>
+          <NavItem>
+            <StyledLink to="/edit">Create Note</StyledLink>
+          </NavItem>
+        </NavList>
+      </Nav>
+      <Outlet />
+    </>
   );
 };
 

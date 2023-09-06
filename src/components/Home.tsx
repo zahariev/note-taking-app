@@ -2,12 +2,12 @@ import { getNotes } from "../utils/localStorage";
 import { Link } from "react-router-dom";
 import { Note } from "../utils/models";
 
-function HomePage() {
+function Home() {
   const notes = getNotes();
 
   return (
     <>
-      awref
+      <h3>Notes</h3>
       <div>
         {notes.map((note: Note) => (
           <Link key={note.id} to={`/note/${note.id}`}>
@@ -20,4 +20,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default Home;
