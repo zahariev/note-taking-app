@@ -6,6 +6,8 @@ import { Note } from "../utils/models";
 import styled from "styled-components";
 import ConfirmationDialog from "../components/ConfirmationDialog";
 import { useState } from "react";
+import Button from "../components/button";
+import ButtonsContainer from "../components/ButtonsContainer";
 
 const DetailContainer = styled.div`
   max-width: 800px;
@@ -23,21 +25,6 @@ const Title = styled.h2`
 const Content = styled.p`
   font-size: 18px;
   margin-bottom: 24px;
-`;
-
-const ActionButton = styled.button`
-  padding: 10px 20px;
-  margin-right: 10px;
-  background-color: ${(props) => (props.danger ? "#ff4d4f" : "#007BFF")};
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${(props) => (props.danger ? "#cc0000" : "#0056b3")};
-  }
 `;
 
 const NoteDetailPage: React.FC = () => {
@@ -64,12 +51,15 @@ const NoteDetailPage: React.FC = () => {
     <DetailContainer>
       <Title>{note.title}</Title>
       <Content>{note.content}</Content>
-      <div>
-        <ActionButton onClick={() => navigate("/")}>Back</ActionButton>
-        <ActionButton danger onClick={confirmDelete}>
+      <ButtonsContainer styleProps={{ margin: "10px", maxWidth: "260px" }}>
+        <Button onClick={() => navigate("/")} backgroundColor="grey">
+          Back
+        </Button>
+        <Button onClick={() => navigate(`/edit/${id}`)}>Edit</Button>
+        <Button danger onClick={confirmDelete}>
           Delete
-        </ActionButton>
-      </div>
+        </Button>
+      </ButtonsContainer>
       {showDialog && (
         <ConfirmationDialog
           message="Are you sure you want to delete this note?"
