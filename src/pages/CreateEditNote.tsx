@@ -29,7 +29,7 @@ const StyledLabel = styled.label`
 const StyledInput = styled.input`
   padding: 10px 15px;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid grey;
   border-radius: 4px;
   font-size: 16px;
 `;
@@ -37,7 +37,7 @@ const StyledInput = styled.input`
 const StyledTextArea = styled.textarea`
   padding: 10px 15px;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid grey;
   border-radius: 4px;
   font-size: 16px;
   height: 200px;
