@@ -15,6 +15,7 @@ const DetailContainer = styled.div`
   padding: 20px;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
+  border: 1px solid #e1e1e1;
 `;
 
 const Title = styled.h2`
