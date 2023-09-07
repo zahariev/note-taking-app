@@ -5,6 +5,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getNotes, setNote } from "../utils/localStorage";
 import { Note } from "../utils/models";
 import styled from "styled-components";
+import Button from "../components/button";
+import ButtonsContainer from "../components/ButtonsContainer";
 
 const FormContainer = styled.div`
   max-width: 600px;
@@ -12,6 +14,7 @@ const FormContainer = styled.div`
   padding: 20px;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
+  border: 1px solid #e1e1e1;
 `;
 
 const StyledForm = styled.form`
@@ -111,9 +114,14 @@ const CreateEditNote: React.FC = () => {
             onChange={(e) => setContent(e.target.value)}
           ></StyledTextArea>
         </div>
-        <StyledButton type="submit">
-          {id ? "Update Note" : "Create Note"}
-        </StyledButton>
+        <ButtonsContainer styleProps={{ margin: "10px", maxWidth: "260px" }}>
+          <StyledButton type="submit">
+            {id ? "Update Note" : "Create Note"}
+          </StyledButton>
+          <Button onClick={() => navigate("/")} backgroundColor="grey">
+            Back
+          </Button>
+        </ButtonsContainer>
       </StyledForm>
     </FormContainer>
   );
