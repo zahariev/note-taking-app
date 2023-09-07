@@ -4,6 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getNotes, deleteNote } from "../utils/localStorage";
 import { Note } from "../utils/models";
 import styled from "styled-components";
+import ConfirmationDialog from "../components/ConfirmationDialog";
+import { useState } from "react";
 
 const DetailContainer = styled.div`
   max-width: 800px;
@@ -43,6 +45,7 @@ const NoteDetailPage: React.FC = () => {
   const navigate = useNavigate();
 
   const note: Note | undefined = getNotes().find((n: Note) => n.id === id);
+  const [showDialog, setShowDialog] = useState<boolean>(false);
 
   if (!note) {
     return <div>Note not found</div>;
@@ -53,16 +56,27 @@ const NoteDetailPage: React.FC = () => {
     navigate("/");
   };
 
+  const confirmDelete = () => {
+    setShowDialog(true);
+  };
+
   return (
     <DetailContainer>
       <Title>{note.title}</Title>
       <Content>{note.content}</Content>
       <div>
         <ActionButton onClick={() => navigate("/")}>Back</ActionButton>
-        <ActionButton danger onClick={handleDelete}>
+        <ActionButton danger onClick={confirmDelete}>
           Delete
         </ActionButton>
       </div>
+      {showDialog && (
+        <ConfirmationDialog
+          message="Are you sure you want to delete this note?"
+          onConfirm={handleDelete}
+          onCancel={() => setShowDialog(false)}
+        />
+      )}
     </DetailContainer>
   );
 };
