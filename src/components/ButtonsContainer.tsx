@@ -11,7 +11,6 @@ const StyledButtonsContainer = styled.div<ButtonsContainerProps>`
   align-items: center;
   gap: 10px;
   ${(props) => props.styleProps && css(props.styleProps)}
-  width: ${(props) => props.width || "auto"};
 `;
 //
 
