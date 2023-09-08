@@ -14,12 +14,9 @@ interface ButtonProps {
 
 // all values can be set to css values defined in the main style css file
 const StyledButton = styled(Button)<ButtonProps>`
-  background-color: ${(props) => props.backgroundColor || "#FF5733"};
+  background-color: #FF5733;
   &:hover {
-    background-color: ${(props) =>
-      props.backgroundColor
-        ? darken(0.1, props.backgroundColor)
-        : darken(0.1, "#FF5733")}
+    background-color: ${darken(0.1, "#FF5733")}
 `;
 
 const ButtonDanger: React.FC<
