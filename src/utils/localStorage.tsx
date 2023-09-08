@@ -5,10 +5,33 @@ export const getNotes = () => {
   return notes ? JSON.parse(notes) : [];
 };
 
-export const setNote = (note: Note) => {
-  const notes = getNotes();
-  notes.push(note);
-  localStorage.setItem("notes", JSON.stringify(notes));
+export const updateNote = (updatedNote: Note) => {
+  // Get the existing notes from local storage
+  const existingNotes = JSON.parse(localStorage.getItem("notes") || "[]");
+  console.log("existingNotes", existingNotes);
+
+  // Find the index of the note we want to update
+  const noteIndex = existingNotes.findIndex(
+    (note: Note) => note.id === updatedNote.id
+  );
+
+  // If the note was found, update it
+  if (noteIndex !== -1) {
+    existingNotes[noteIndex] = updatedNote;
+
+    // Save the updated notes back to local storage
+    localStorage.setItem("notes", JSON.stringify(existingNotes));
+  }
+};
+
+export const createNote = (note: Note) => {
+  // Get the existing notes from local storage
+  const existingNotes = JSON.parse(localStorage.getItem("notes") || "[]");
+
+  // Add the new note to the existing notes array
+  existingNotes.push(note);
+  // Save the updated notes back to local storage
+  localStorage.setItem("notes", JSON.stringify(existingNotes));
 };
 
 export const deleteNote = (id: string) => {
