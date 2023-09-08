@@ -2,6 +2,7 @@ import { getNotes } from "../utils/localStorage";
 import { Link } from "react-router-dom";
 import { Note } from "../utils/models";
 import styled from "styled-components";
+import { format } from "date-fns";
 
 const NoteListContainer = styled.div`
   max-width: 800px;
@@ -59,7 +60,9 @@ function Home() {
           <NoteItem>
             <NoteTitle>
               {note.title}
-              <NoteDate>{note.updatedAt}</NoteDate>{" "}
+              <NoteDate>
+                {format(new Date(note.updatedAt), "dd/MM/yyyy HH:mm")}
+              </NoteDate>{" "}
             </NoteTitle>
             <NotePreview>{note.content.substring(0, 100)}...</NotePreview>
           </NoteItem>
