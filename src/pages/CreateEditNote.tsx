@@ -84,7 +84,6 @@ const CreateEditNote: React.FC = () => {
       createdAt: existingNote?.createdAt || new Date(),
       updatedAt: new Date(),
     };
-    console.log("id", id);
 
     if (id) updateNote(note);
     else createNote(note);
@@ -114,7 +113,10 @@ const CreateEditNote: React.FC = () => {
           <StyledButton type="submit">
             {id ? "Update Note" : "Create Note"}
           </StyledButton>
-          <Button onClick={() => navigate("/")} backgroundColor="grey">
+          <Button
+            onClick={() => navigate("/")}
+            style={{ backgroundColor: "grey" }}
+          >
             Back
           </Button>
         </ButtonsContainer>

@@ -48,7 +48,7 @@ const ConfirmationDialog: React.FC<Props> = ({
         <p>{message}</p>
         <DialogButtons>
           <Button onClick={onConfirm}>Yes</Button>
-          <Button onClick={onCancel} backgroundColor="lightgrey">
+          <Button onClick={onCancel} style={{ backgroundColor: "grey" }}>
             No
           </Button>
         </DialogButtons>

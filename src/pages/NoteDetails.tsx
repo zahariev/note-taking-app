@@ -54,7 +54,10 @@ const NoteDetailPage: React.FC = () => {
       <Title>{note.title}</Title>
       <Content>{note.content}</Content>
       <ButtonsContainer styleProps={{ margin: "10px", maxWidth: "260px" }}>
-        <Button onClick={() => navigate("/")} backgroundColor="grey">
+        <Button
+          onClick={() => navigate("/")}
+          style={{ backgroundColor: "grey" }}
+        >
           Back
         </Button>
         <Button onClick={() => navigate(`/edit/${id}`)}>Edit</Button>

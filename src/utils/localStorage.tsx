@@ -8,7 +8,6 @@ export const getNotes = () => {
 export const updateNote = (updatedNote: Note) => {
   // Get the existing notes from local storage
   const existingNotes = JSON.parse(localStorage.getItem("notes") || "[]");
-  console.log("existingNotes", existingNotes);
 
   // Find the index of the note we want to update
   const noteIndex = existingNotes.findIndex(
