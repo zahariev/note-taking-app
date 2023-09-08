@@ -47,7 +47,9 @@ const NoteDate = styled.span`
 `;
 
 function Home() {
-  const notes = getNotes();
+  const notes = getNotes().sort((a: Note, b: Note) => {
+    return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+  });
 
   return (
     <NoteListContainer>
@@ -57,12 +59,15 @@ function Home() {
           <NoteItem>
             <NoteTitle>
               {note.title}
-              <NoteDate>{note.date}</NoteDate>{" "}
+              <NoteDate>{note.updatedAt}</NoteDate>{" "}
             </NoteTitle>
             <NotePreview>{note.content.substring(0, 100)}...</NotePreview>
           </NoteItem>
         </StyledLink>
       ))}
+      {notes.length === 0 ? (
+        <p>No notes available. Please add a new note.</p>
+      ) : null}
     </NoteListContainer>
   );
 }

@@ -36,8 +36,8 @@ const StyledButton = styled.button<ButtonProps>`
 
 const Button: React.FC<
   React.ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps
-> = (props) => {
-  return <StyledButton {...props} />;
+> = ({ danger, ...props }) => {
+  return <StyledButton danger={danger ? true : undefined} {...props} />;
 };
 
 export default Button;

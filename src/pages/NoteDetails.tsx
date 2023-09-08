@@ -6,8 +6,9 @@ import { Note } from "../utils/models";
 import styled from "styled-components";
 import ConfirmationDialog from "../components/ConfirmationDialog";
 import { useState } from "react";
-import Button from "../components/button";
+import Button from "../components/Button";
 import ButtonsContainer from "../components/ButtonsContainer";
+import ButtonDanger from "../components/ButtonDanger";
 
 const DetailContainer = styled.div`
   max-width: 800px;
@@ -57,9 +58,7 @@ const NoteDetailPage: React.FC = () => {
           Back
         </Button>
         <Button onClick={() => navigate(`/edit/${id}`)}>Edit</Button>
-        <Button danger onClick={confirmDelete}>
-          Delete
-        </Button>
+        <ButtonDanger onClick={confirmDelete}>Delete</ButtonDanger>
       </ButtonsContainer>
       {showDialog && (
         <ConfirmationDialog

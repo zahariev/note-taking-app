@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 interface ButtonsContainerProps {
   styleProps?: React.CSSProperties;
-  width?: string;
 }
 
 const StyledButtonsContainer = styled.div<ButtonsContainerProps>`

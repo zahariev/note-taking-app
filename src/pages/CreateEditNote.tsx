@@ -1,11 +1,11 @@
 // src/pages/CreateEditNotePage.tsx
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getNotes, setNote } from "../utils/localStorage";
+import { createNote, getNotes, updateNote } from "../utils/localStorage";
 import { Note } from "../utils/models";
 import styled from "styled-components";
-import Button from "../components/button";
+import Button from "../components/Button";
 import ButtonsContainer from "../components/ButtonsContainer";
 
 const FormContainer = styled.div`
@@ -61,20 +61,13 @@ const StyledButton = styled.button`
 const CreateEditNote: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
 
-  useEffect(() => {
-    if (id) {
-      const noteToEdit: Note | undefined = getNotes().find(
-        (n: Note) => n.id === id
-      );
-      if (noteToEdit) {
-        setTitle(noteToEdit.title);
-        setContent(noteToEdit.content);
-      }
-    }
-  }, [id]);
+  const existingNote: Note | undefined = id
+    ? getNotes().find((n: Note) => n.id === id)
+    : undefined;
+
+  const [title, setTitle] = useState<string>(existingNote?.title || "");
+  const [content, setContent] = useState<string>(existingNote?.content || "");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -84,14 +77,17 @@ const CreateEditNote: React.FC = () => {
       return;
     }
 
-    const newNote: Note = {
+    const note: Note = {
       id: id || Date.now().toString(),
       title,
       content,
-      date: new Date().toLocaleDateString(),
+      createdAt: existingNote?.createdAt || new Date(),
+      updatedAt: new Date(),
     };
+    console.log("id", id);
 
-    setNote(newNote);
+    if (id) updateNote(note);
+    else createNote(note);
     navigate("/");
   };
 
