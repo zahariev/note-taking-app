@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Note } from "../utils/models";
 import styled from "styled-components";
 import { format } from "date-fns";
+import NoteHeader from "../components/NoteHeader";
 
 const NoteListContainer = styled.div`
   max-width: 800px;
@@ -11,7 +12,8 @@ const NoteListContainer = styled.div`
 
 const NoteItem = styled.div`
   border: 1px solid #e1e1e1;
-  border-radius: 14px;
+  background-color: #fff;
+  border-radius: 10px;
   padding: 15px;
   margin-bottom: 20px;
   transition: box-shadow 0.3s ease;
@@ -19,12 +21,6 @@ const NoteItem = styled.div`
   &:hover {
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
   }
-`;
-
-const NoteTitle = styled.h3`
-  margin: 0;
-  font-size: 24px;
-  color: #007bff;
 `;
 
 const NotePreview = styled.p`
@@ -35,16 +31,6 @@ const NotePreview = styled.p`
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
-
-  //   &:hover {
-  //     text-decoration: underline;
-  //   }
-`;
-
-const NoteDate = styled.span`
-  font-size: 14px;
-  color: #888;
-  float: right;
 `;
 
 function Home() {
@@ -58,12 +44,7 @@ function Home() {
       {notes.map((note: Note) => (
         <StyledLink key={note.id} to={`/note/${note.id}`}>
           <NoteItem>
-            <NoteTitle>
-              {note.title}
-              <NoteDate>
-                {format(new Date(note.updatedAt), "dd/MM/yyyy HH:mm")}
-              </NoteDate>{" "}
-            </NoteTitle>
+            <NoteHeader note={note} />
             <NotePreview>{note.content.substring(0, 100)}...</NotePreview>
           </NoteItem>
         </StyledLink>

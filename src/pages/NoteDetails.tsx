@@ -9,19 +9,16 @@ import { useState } from "react";
 import Button from "../components/Button";
 import ButtonsContainer from "../components/ButtonsContainer";
 import ButtonDanger from "../components/ButtonDanger";
+import NoteHeader from "../components/NoteHeader";
 
 const DetailContainer = styled.div`
   max-width: 800px;
   margin: 50px auto;
+  background-color: #fff;
   padding: 20px;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  border-radius: 10px;
   border: 1px solid #e1e1e1;
-`;
-
-const Title = styled.h2`
-  font-size: 28px;
-  margin-bottom: 16px;
 `;
 
 const Content = styled.p`
@@ -51,15 +48,21 @@ const NoteDetailPage: React.FC = () => {
 
   return (
     <DetailContainer>
-      <Title>{note.title}</Title>
+      <NoteHeader note={note} />
       <Content>{note.content}</Content>
       <ButtonsContainer styleProps={{ margin: "10px", maxWidth: "260px" }}>
         <Button
           onClick={() => navigate("/")}
-          style={{ backgroundColor: "grey" }}
+          style={{ backgroundColor: "grey", width: "80px", height: "40px" }}
         >
-          Back
+          {/* <Icon
+            src="/src/assets/back.svg"
+            alt="Back"
+            style={{ width: "30px", height: "25px", padding: "-4px 0px" }}
+          /> */}
+          &lt;
         </Button>
+
         <Button onClick={() => navigate(`/edit/${id}`)}>Edit</Button>
         <ButtonDanger onClick={confirmDelete}>Delete</ButtonDanger>
       </ButtonsContainer>
