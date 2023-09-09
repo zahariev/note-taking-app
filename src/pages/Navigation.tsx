@@ -2,8 +2,26 @@ import { Link, Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 const Nav = styled.nav`
-  background-color: #333;
-  padding: 1rem 2rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #084153;
+  color: white;
+  padding: 0rem 1rem;
+`;
+//   padding: 1rem 2rem;
+//   background-color: #333;
+const NatTitle = styled.h1`
+  font-size: 1.5rem;
+  margin: 0;
+  color: #fff;
+`;
+
+const StyledImg = styled.img`
+  width: 80px;
+  height: 50px;
+  cursor: pointer;
 `;
 
 const NavList = styled.ul`
@@ -29,6 +47,10 @@ const Navigation = () => {
   return (
     <>
       <Nav>
+        <Link to="/">
+          <StyledImg src="/src/assets/logo.svg" alt="App Logo" />
+        </Link>
+        <NatTitle>Note app</NatTitle>
         <NavList>
           <NavItem>
             <StyledLink to="/">Home</StyledLink>
