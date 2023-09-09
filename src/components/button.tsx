@@ -14,7 +14,7 @@ interface ButtonProps {
 // all values can be set to css values defined in the main style css file
 const StyledButton = styled.button<ButtonProps>`
   color: ${(props) => props.color || "#FFFFFF"};
-  background-color: ${(props) => props.backgroundColor || "#007BFF"};
+  background-color: ${(props) => props.backgroundColor || "#2cabd3"};
   border: ${(props) => props.border || "none"};
   padding: ${(props) => props.padding || "10px 20px"};
   font-size: ${(props) => props.fontSize || "16px"};
@@ -27,7 +27,7 @@ const StyledButton = styled.button<ButtonProps>`
     background-color: ${(props) =>
       props.backgroundColor
         ? darken(0.1, props.backgroundColor)
-        : darken(0.1, "#007BFF")};
+        : darken(0.1, "#1e94ba")};
   }
 `;
 
