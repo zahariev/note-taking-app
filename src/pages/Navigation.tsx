@@ -9,6 +9,8 @@ const Nav = styled.nav`
   background-color: #084153;
   color: white;
   padding: 0rem 1rem;
+  position: sticky;
+  top: 0;
 `;
 //   padding: 1rem 2rem;
 //   background-color: #333;

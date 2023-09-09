@@ -6,12 +6,12 @@ import { format } from "date-fns";
 
 const NoteListContainer = styled.div`
   max-width: 800px;
-  margin: 50px auto;
+  margin: 20px auto;
 `;
 
 const NoteItem = styled.div`
   border: 1px solid #e1e1e1;
-  border-radius: 4px;
+  border-radius: 14px;
   padding: 15px;
   margin-bottom: 20px;
   transition: box-shadow 0.3s ease;
