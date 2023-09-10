@@ -1,6 +1,6 @@
 // src/pages/CreateEditNotePage.tsx
 
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { createNote, getNotes, updateNote } from "../utils/localStorage";
 import { Note } from "../utils/models";
@@ -8,7 +8,7 @@ import styled from "styled-components";
 import Button from "../components/Button";
 import ButtonsContainer from "../components/ButtonsContainer";
 import ButtonBack from "../components/ButtonBack";
-import { set } from "date-fns";
+
 import ConfirmationDialog from "../components/ConfirmationDialog";
 
 const FormContainer = styled.div`
@@ -112,9 +112,11 @@ const CreateEditNote: React.FC = () => {
     <FormContainer>
       <StyledForm onSubmit={handleSubmit}>
         <div>
-          <StyledLabel>Title:</StyledLabel>
+          <StyledLabel htmlFor="noteTitle">Title:</StyledLabel>
           <StyledInput
             type="text"
+            id="noteTitle"
+            data-testid="email-input"
             value={title}
             onChange={(e) => handleTitleChange(e)}
             required
