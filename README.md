@@ -1,5 +1,9 @@
 # Note App 📝
 
+# [Project Name](http://zahariev.github.io/note-taking-app)
+
+[Description]
+
 A simple note-taking application built with React.
 
 ![Screenshot of Note App](./screenshot.png)
