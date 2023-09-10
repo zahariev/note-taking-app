@@ -1,27 +1,52 @@
-# React + TypeScript + Vite
+# Note App 📝
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple note-taking application built with React.
 
-Currently, two official plugins are available:
+![Screenshot of Note App](./screenshot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Create Notes:** Quickly jot down your thoughts.
+- **Edit Notes:** Made a mistake? Easily edit your notes.
+- **Delete Notes:** Remove notes that you no longer need.
+- **Sort Notes:** Notes are automatically sorted based on the last updated time.
+- **Responsive:** Optimized for mobile, tablet, and desktop.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Getting Started
 
-- Configure the top-level `parserOptions` property like this:
+### Prerequisites
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+- Node.js
+- Yarn (or npm)
+
+### Installation
+
+1. Clone the repo:
+
+```bash
+git clone https://github.com/your-username/note-app.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Navigate into the project directory:
+
+```bash
+cd note-app
+```
+
+3. Install the dependencies:
+
+```bash
+npm i
+```
+
+4. Install the dependencies:
+
+```bash
+npm i
+```
+
+5. Run the app:
+
+```bash
+npm i
+```
