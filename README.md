@@ -42,7 +42,13 @@ npm i
 4. Run the app:
 
 ```bash
-npm i
+npm start
+```
+
+5. Run tests:
+
+```bash
+npm test
 ```
 
 ## Tech Stack
