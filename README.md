@@ -39,14 +39,24 @@ cd note-app
 npm i
 ```
 
-4. Install the dependencies:
+4. Run the app:
 
 ```bash
 npm i
 ```
 
-5. Run the app:
+## Tech Stack
 
-```bash
-npm i
-```
+- **React**
+- **styled-components**
+- **TypeScript**
+- **React Router**
+- **Jest** for testing
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+This project is licensed under the MIT License. See `LICENSE.md` for more information.
