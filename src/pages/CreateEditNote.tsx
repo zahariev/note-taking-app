@@ -98,8 +98,7 @@ const CreateEditNote: React.FC = () => {
       createdAt: existingNote?.createdAt || new Date(),
       updatedAt: new Date(),
     };
-    console.log("Submitting note:", note);
-    console.log(id);
+
     if (id) updateNote(note);
     else createNote(note);
     navigate("/");
