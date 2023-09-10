@@ -10,6 +10,7 @@ import Button from "../components/Button";
 import ButtonsContainer from "../components/ButtonsContainer";
 import ButtonDanger from "../components/ButtonDanger";
 import NoteHeader from "../components/NoteHeader";
+import ButtonBack from "../components/ButtonBack";
 
 const DetailContainer = styled.div`
   max-width: 800px;
@@ -51,17 +52,9 @@ const NoteDetailPage: React.FC = () => {
       <NoteHeader note={note} />
       <Content>{note.content}</Content>
       <ButtonsContainer styleProps={{ margin: "10px", maxWidth: "260px" }}>
-        <Button
-          onClick={() => navigate("/")}
-          style={{ backgroundColor: "grey", width: "80px", height: "40px" }}
-        >
-          {/* <Icon
-            src="/src/assets/back.svg"
-            alt="Back"
-            style={{ width: "30px", height: "25px", padding: "-4px 0px" }}
-          /> */}
+        <ButtonBack onClick={() => navigate(-1)} style={{ width: "50px" }}>
           &lt;
-        </Button>
+        </ButtonBack>
 
         <Button onClick={() => navigate(`/edit/${id}`)}>Edit</Button>
         <ButtonDanger onClick={confirmDelete}>Delete</ButtonDanger>

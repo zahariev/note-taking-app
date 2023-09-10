@@ -7,14 +7,16 @@ import { Note } from "../utils/models";
 import styled from "styled-components";
 import Button from "../components/Button";
 import ButtonsContainer from "../components/ButtonsContainer";
+import ButtonBack from "../components/ButtonBack";
 
 const FormContainer = styled.div`
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  border-radius: 10px;
   border: 1px solid #e1e1e1;
+  background-color: #fff;
 `;
 
 const StyledForm = styled.form`
@@ -24,6 +26,7 @@ const StyledForm = styled.form`
 
 const StyledLabel = styled.label`
   margin-bottom: 8px;
+  background-color: #fff;
 `;
 
 const StyledInput = styled.input`
@@ -32,6 +35,7 @@ const StyledInput = styled.input`
   border: 1px solid grey;
   border-radius: 4px;
   font-size: 16px;
+  background-color: #fff;
 `;
 
 const StyledTextArea = styled.textarea`
@@ -42,20 +46,7 @@ const StyledTextArea = styled.textarea`
   font-size: 16px;
   height: 200px;
   resize: vertical;
-`;
-
-const StyledButton = styled.button`
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0056b3;
-  }
+  background-color: #fff;
 `;
 
 const CreateEditNote: React.FC = () => {
@@ -110,15 +101,8 @@ const CreateEditNote: React.FC = () => {
           ></StyledTextArea>
         </div>
         <ButtonsContainer styleProps={{ margin: "10px", maxWidth: "260px" }}>
-          <StyledButton type="submit">
-            {id ? "Update Note" : "Create Note"}
-          </StyledButton>
-          <Button
-            onClick={() => navigate("/")}
-            style={{ backgroundColor: "grey" }}
-          >
-            Back
-          </Button>
+          <Button type="submit">{id ? "Update Note" : "Create Note"} </Button>
+          <ButtonBack onClick={() => navigate(-1)}>Back</ButtonBack>
         </ButtonsContainer>
       </StyledForm>
     </FormContainer>
