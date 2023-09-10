@@ -26,15 +26,18 @@ const StyledForm = styled.form`
 
 const StyledLabel = styled.label`
   margin-bottom: 8px;
+  color: #333;
   background-color: #fff;
 `;
 
 const StyledInput = styled.input`
   padding: 10px 15px;
   margin-bottom: 20px;
+  margin-left: 25px;
   border: 1px solid grey;
   border-radius: 4px;
   font-size: 16px;
+  color: #333;
   background-color: #fff;
 `;
 
@@ -47,6 +50,7 @@ const StyledTextArea = styled.textarea`
   height: 200px;
   resize: vertical;
   background-color: #fff;
+  color: #333;
 `;
 
 const CreateEditNote: React.FC = () => {
