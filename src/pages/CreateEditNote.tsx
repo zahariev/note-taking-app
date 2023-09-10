@@ -98,7 +98,8 @@ const CreateEditNote: React.FC = () => {
       createdAt: existingNote?.createdAt || new Date(),
       updatedAt: new Date(),
     };
-
+    console.log("Submitting note:", note);
+    console.log(id);
     if (id) updateNote(note);
     else createNote(note);
     navigate("/");
@@ -110,7 +111,7 @@ const CreateEditNote: React.FC = () => {
 
   return (
     <FormContainer>
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={handleSubmit} data-testid="note-form">
         <div>
           <StyledLabel htmlFor="noteTitle">Title:</StyledLabel>
           <StyledInput
