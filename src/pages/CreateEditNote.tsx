@@ -1,6 +1,6 @@
 // src/pages/CreateEditNotePage.tsx
 
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { createNote, getNotes, updateNote } from "../utils/localStorage";
 import { Note } from "../utils/models";
@@ -8,6 +8,8 @@ import styled from "styled-components";
 import Button from "../components/Button";
 import ButtonsContainer from "../components/ButtonsContainer";
 import ButtonBack from "../components/ButtonBack";
+import { set } from "date-fns";
+import ConfirmationDialog from "../components/ConfirmationDialog";
 
 const FormContainer = styled.div`
   max-width: 600px;
@@ -61,8 +63,25 @@ const CreateEditNote: React.FC = () => {
     ? getNotes().find((n: Note) => n.id === id)
     : undefined;
 
+  const [showDialog, setShowDialog] = useState<boolean>(false);
   const [title, setTitle] = useState<string>(existingNote?.title || "");
   const [content, setContent] = useState<string>(existingNote?.content || "");
+  const [hasChanges, setHasChanges] = useState(false);
+
+  const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(event.target.value);
+    setHasChanges(true);
+  };
+
+  const handleNoteChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setContent(event.target.value);
+    setHasChanges(true);
+  };
+
+  const handleBack = () => {
+    if (!hasChanges) navigate(-1);
+    else confirmBack();
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -85,6 +104,10 @@ const CreateEditNote: React.FC = () => {
     navigate("/");
   };
 
+  const confirmBack = () => {
+    setShowDialog(true);
+  };
+
   return (
     <FormContainer>
       <StyledForm onSubmit={handleSubmit}>
@@ -93,7 +116,7 @@ const CreateEditNote: React.FC = () => {
           <StyledInput
             type="text"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => handleTitleChange(e)}
             required
           />
         </div>
@@ -101,14 +124,23 @@ const CreateEditNote: React.FC = () => {
           <StyledLabel>Content:</StyledLabel>
           <StyledTextArea
             value={content}
-            onChange={(e) => setContent(e.target.value)}
+            onChange={(e) => handleNoteChange(e)}
           ></StyledTextArea>
         </div>
         <ButtonsContainer styleProps={{ margin: "10px", maxWidth: "260px" }}>
           <Button type="submit">{id ? "Update Note" : "Create Note"} </Button>
-          <ButtonBack onClick={() => navigate(-1)}>Back</ButtonBack>
+          <ButtonBack type="button" onClick={handleBack}>
+            Back
+          </ButtonBack>
         </ButtonsContainer>
       </StyledForm>
+      {showDialog && (
+        <ConfirmationDialog
+          message="Are you sure you want to cancel changes?"
+          onConfirm={() => navigate("/")}
+          onCancel={() => setShowDialog(false)}
+        />
+      )}
     </FormContainer>
   );
 };

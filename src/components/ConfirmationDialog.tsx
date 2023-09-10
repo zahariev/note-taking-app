@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Button from "./Button";
+import ButtonBack from "./ButtonBack";
 
 const DialogOverlay = styled.div`
   position: fixed;
@@ -48,9 +49,7 @@ const ConfirmationDialog: React.FC<Props> = ({
         <p>{message}</p>
         <DialogButtons>
           <Button onClick={onConfirm}>Yes</Button>
-          <Button onClick={onCancel} style={{ backgroundColor: "#efefef" }}>
-            No
-          </Button>
+          <ButtonBack onClick={onCancel}>No</ButtonBack>
         </DialogButtons>
       </DialogContent>
     </DialogOverlay>
