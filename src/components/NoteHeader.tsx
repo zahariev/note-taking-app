@@ -8,8 +8,8 @@ interface NoteTitleProps {
 
 const NoteTitle = styled.h3`
   margin: 0;
-  font-size: 24px;
-  color: #005a72;
+  font-size: 1.2rem;
+  color: #235565;
 `;
 
 const NoteDate = styled.span`

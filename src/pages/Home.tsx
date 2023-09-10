@@ -2,12 +2,18 @@ import { getNotes } from "../utils/localStorage";
 import { Link } from "react-router-dom";
 import { Note } from "../utils/models";
 import styled from "styled-components";
-import { format } from "date-fns";
 import NoteHeader from "../components/NoteHeader";
 
 const NoteListContainer = styled.div`
   max-width: 800px;
   margin: 20px auto;
+`;
+
+const ListTitle = styled.p`
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #235565;
+  text-transform: uppercase;
 `;
 
 const NoteItem = styled.div`
@@ -40,7 +46,8 @@ function Home() {
 
   return (
     <NoteListContainer>
-      Notes:
+      <ListTitle>Notes:</ListTitle>
+
       {notes.map((note: Note) => (
         <StyledLink key={note.id} to={`/note/${note.id}`}>
           <NoteItem>
