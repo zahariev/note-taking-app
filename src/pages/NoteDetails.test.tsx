@@ -164,7 +164,7 @@ describe("NoteDetailPage", () => {
     expect(navigate).not.toHaveBeenCalledWith("/");
   });
 
-  it("deletes note and navigates to home on delete confirmation", () => {
+  it("navigates back using the back button", () => {
     (useParams as jest.Mock).mockReturnValue({ id: "12345" });
     (getNotes as jest.Mock).mockReturnValue([
       {
