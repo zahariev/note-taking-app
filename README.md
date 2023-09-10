@@ -1,6 +1,4 @@
-# Note App 📝
-
-# [Project Name](http://zahariev.github.io/note-taking-app)
+# [Note App] (http://zahariev.github.io/note-taking-app)
 
 [Description]
 
