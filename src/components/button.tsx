@@ -18,8 +18,11 @@ const StyledButton = styled.button<ButtonProps>`
   border: ${(props) => props.border || "none"};
   padding: ${(props) => props.padding || "10px 20px"};
   font-size: ${(props) => props.fontSize || "16px"};
+  font-weight: 600;
   cursor: pointer;
   border-radius: 4px;
+  min-width: 80px;
+  min-height: 40px;
   margin: ${(props) => props.margin || "0"};
   transition: background-color 0.3s ease;
 
