@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 interface ButtonsContainerProps {
   styleProps?: React.CSSProperties;
@@ -9,9 +9,8 @@ const StyledButtonsContainer = styled.div<ButtonsContainerProps>`
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  ${(props) => props.styleProps && css(props.styleProps)}
 `;
-//
+//  ${(props) => props.styleProps && css(props.styleProps)}
 
 const ButtonsContainer: React.FC<
   ButtonsContainerProps & React.HTMLProps<HTMLDivElement>
