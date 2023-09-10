@@ -123,8 +123,9 @@ const CreateEditNote: React.FC = () => {
           />
         </div>
         <div>
-          <StyledLabel>Content:</StyledLabel>
+          <StyledLabel htmlFor="noteContent">Content:</StyledLabel>
           <StyledTextArea
+            id="noteContent"
             value={content}
             onChange={(e) => handleNoteChange(e)}
           ></StyledTextArea>
