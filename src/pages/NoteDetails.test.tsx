@@ -163,4 +163,27 @@ describe("NoteDetailPage", () => {
     expect(deleteNote).not.toHaveBeenCalled();
     expect(navigate).not.toHaveBeenCalledWith("/");
   });
+
+  it("deletes note and navigates to home on delete confirmation", () => {
+    (useParams as jest.Mock).mockReturnValue({ id: "12345" });
+    (getNotes as jest.Mock).mockReturnValue([
+      {
+        id: "12345",
+        title: "Test Note",
+        content: "Test Content",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ]);
+
+    render(
+      <Router>
+        <NoteDetailPage />
+      </Router>
+    );
+
+    fireEvent.click(screen.getByText("<"));
+
+    expect(navigate).toHaveBeenCalledWith(-1);
+  });
 });
