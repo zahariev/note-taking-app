@@ -172,7 +172,7 @@ Error generating stack: `+i.message+`
   width: 80px;
   height: 50px;
   cursor: pointer;
-`,y1=({...e})=>_.jsx(v1,{...e}),w1=U.nav`
+`,y1=({...e})=>_.jsx(v1,{...e}),w1="/note-taking-app/assets/logo-7077e5c9.svg",S1=U.nav`
   height: 4rem;
   display: flex;
   align-items: center;
@@ -182,11 +182,11 @@ Error generating stack: `+i.message+`
   padding: 0rem 1rem;
   position: sticky;
   top: 0;
-`,S1=U.h1`
+`,k1=U.h1`
   font-size: 1.5rem;
   margin: 0;
   color: #fff;
-`,k1=U.ul`
+`,x1=U.ul`
   display: flex;
   gap: 1rem;
   list-style: none;
@@ -199,7 +199,7 @@ Error generating stack: `+i.message+`
   &:hover {
     text-decoration: underline;
   }
-`,x1=()=>_.jsxs(_.Fragment,{children:[_.jsxs(w1,{children:[_.jsx(ju,{to:"/",children:_.jsx(y1,{src:"/src/assets/logo.svg",alt:"App Logo"})}),_.jsx(S1,{children:"Note app"}),_.jsxs(k1,{children:[_.jsx(Ec,{children:_.jsx(Pc,{to:"/",children:"Home"})}),_.jsx(Ec,{children:_.jsx(Pc,{to:"/create",children:"Create Note"})})]})]}),_.jsx(H0,{})]}),C1=()=>_.jsx("h1",{children:"404"}),E1=U.div`
+`,C1=()=>_.jsxs(_.Fragment,{children:[_.jsxs(S1,{children:[_.jsx(ju,{to:"/",children:_.jsx(y1,{src:w1,alt:"App Logo"})}),_.jsx(k1,{children:"Note app"}),_.jsxs(x1,{children:[_.jsx(Ec,{children:_.jsx(Pc,{to:"/",children:"Home"})}),_.jsx(Ec,{children:_.jsx(Pc,{to:"/create",children:"Create Note"})})]})]}),_.jsx(H0,{})]}),E1=()=>_.jsx("h1",{children:"404"}),P1=U.div`
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
@@ -207,14 +207,14 @@ Error generating stack: `+i.message+`
   border-radius: 10px;
   border: 1px solid #e1e1e1;
   background-color: #fff;
-`,P1=U.form`
+`,_1=U.form`
   display: flex;
   flex-direction: column;
 `,_c=U.label`
   margin-bottom: 8px;
   color: #333;
   background-color: #fff;
-`,_1=U.input`
+`,T1=U.input`
   padding: 10px 15px;
   margin-bottom: 20px;
   margin-left: 25px;
@@ -223,7 +223,7 @@ Error generating stack: `+i.message+`
   font-size: 16px;
   color: #333;
   background-color: #fff;
-`,T1=U.textarea`
+`,O1=U.textarea`
   padding: 10px 15px;
   margin-bottom: 20px;
   border: 1px solid grey;
@@ -233,4 +233,4 @@ Error generating stack: `+i.message+`
   resize: vertical;
   background-color: #fff;
   color: #333;
-`,Tc=()=>{const{id:e}=Kd(),t=Lu(),n=e?Ai().find(C=>C.id===e):void 0,[r,o]=P.useState(!1),[i,l]=P.useState((n==null?void 0:n.title)||""),[a,u]=P.useState((n==null?void 0:n.content)||""),[s,d]=P.useState(!1),h=C=>{l(C.target.value),d(!0)},m=C=>{u(C.target.value),d(!0)},g=()=>{s?y():t(-1)},v=C=>{if(C.preventDefault(),!i.trim()){alert("Title cannot be empty");return}const f={id:e||Date.now().toString(),title:i,content:a,createdAt:(n==null?void 0:n.createdAt)||new Date,updatedAt:new Date};e?tg(f):ng(f),t("/")},y=()=>{o(!0)};return _.jsxs(E1,{children:[_.jsxs(P1,{onSubmit:v,"data-testid":"note-form",children:[_.jsxs("div",{children:[_.jsx(_c,{htmlFor:"noteTitle",children:"Title:"}),_.jsx(_1,{type:"text",id:"noteTitle","data-testid":"email-input",value:i,onChange:C=>h(C),required:!0})]}),_.jsxs("div",{children:[_.jsx(_c,{htmlFor:"noteContent",children:"Content:"}),_.jsx(T1,{id:"noteContent",value:a,onChange:C=>m(C)})]}),_.jsxs(_p,{styleProps:{margin:"10px",maxWidth:"260px"},children:[_.jsxs(ro,{type:"submit",children:[e?"Update Note":"Create Note"," "]}),_.jsx(Bu,{type:"button",onClick:g,children:"Back"})]})]}),r&&_.jsx(Pp,{message:"Are you sure you want to cancel changes?",onConfirm:()=>t("/"),onCancel:()=>o(!1)})]})};function O1(){return _.jsx(_.Fragment,{children:_.jsx(b0,{children:_.jsxs(Xt,{path:"/",element:_.jsx(x1,{}),children:[_.jsx(Xt,{index:!0,element:_.jsx(Iy,{})}),_.jsx(Xt,{path:"note/:id",element:_.jsx(g1,{})}),_.jsx(Xt,{path:"create",element:_.jsx(Tc,{})}),_.jsx(Xt,{path:"edit/:id",element:_.jsx(Tc,{})}),_.jsx(Xt,{path:"*",element:_.jsx(C1,{})})]})})})}Rl.createRoot(document.getElementById("root")).render(_.jsx(un.StrictMode,{children:_.jsx(q0,{children:_.jsx(O1,{})})}));
+`,Tc=()=>{const{id:e}=Kd(),t=Lu(),n=e?Ai().find(C=>C.id===e):void 0,[r,o]=P.useState(!1),[i,l]=P.useState((n==null?void 0:n.title)||""),[a,u]=P.useState((n==null?void 0:n.content)||""),[s,d]=P.useState(!1),h=C=>{l(C.target.value),d(!0)},m=C=>{u(C.target.value),d(!0)},g=()=>{s?y():t(-1)},v=C=>{if(C.preventDefault(),!i.trim()){alert("Title cannot be empty");return}const f={id:e||Date.now().toString(),title:i,content:a,createdAt:(n==null?void 0:n.createdAt)||new Date,updatedAt:new Date};e?tg(f):ng(f),t("/")},y=()=>{o(!0)};return _.jsxs(P1,{children:[_.jsxs(_1,{onSubmit:v,"data-testid":"note-form",children:[_.jsxs("div",{children:[_.jsx(_c,{htmlFor:"noteTitle",children:"Title:"}),_.jsx(T1,{type:"text",id:"noteTitle","data-testid":"email-input",value:i,onChange:C=>h(C),required:!0})]}),_.jsxs("div",{children:[_.jsx(_c,{htmlFor:"noteContent",children:"Content:"}),_.jsx(O1,{id:"noteContent",value:a,onChange:C=>m(C)})]}),_.jsxs(_p,{styleProps:{margin:"10px",maxWidth:"260px"},children:[_.jsxs(ro,{type:"submit",children:[e?"Update Note":"Create Note"," "]}),_.jsx(Bu,{type:"button",onClick:g,children:"Back"})]})]}),r&&_.jsx(Pp,{message:"Are you sure you want to cancel changes?",onConfirm:()=>t("/"),onCancel:()=>o(!1)})]})};function N1(){return _.jsx(_.Fragment,{children:_.jsx(b0,{children:_.jsxs(Xt,{path:"/",element:_.jsx(C1,{}),children:[_.jsx(Xt,{index:!0,path:"/",element:_.jsx(Iy,{})}),_.jsx(Xt,{path:"note/:id",element:_.jsx(g1,{})}),_.jsx(Xt,{path:"create",element:_.jsx(Tc,{})}),_.jsx(Xt,{path:"edit/:id",element:_.jsx(Tc,{})}),_.jsx(Xt,{path:"*",element:_.jsx(E1,{})})]})})})}Rl.createRoot(document.getElementById("root")).render(_.jsx(un.StrictMode,{children:_.jsx(q0,{children:_.jsx(N1,{})})}));
