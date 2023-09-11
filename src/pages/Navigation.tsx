@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import styled from "styled-components";
 import Icon from "../components/Icon";
+import logo from "../assets/logo.svg";
 
 const Nav = styled.nav`
   height: 4rem;
@@ -45,7 +46,7 @@ const Navigation = () => {
     <>
       <Nav>
         <Link to="/">
-          <Icon src="/src/assets/logo.svg" alt="App Logo" />
+          <Icon src={logo} alt="App Logo" />
         </Link>
         <NatTitle>Note app</NatTitle>
         <NavList>
