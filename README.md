@@ -3,6 +3,7 @@ Note Taking App
 [Description]
 
 A simple note-taking application built with React.
+First ever React code.
 
 ![Screenshot of Note App](./screenshot.png)
 
