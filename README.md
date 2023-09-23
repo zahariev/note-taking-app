@@ -1,5 +1,5 @@
-# [Note App](http://zahariev.github.io/note-taking-app)
-
+# [Demo](http://zahariev.github.io/note-taking-app)
+Note Taking App
 [Description]
 
 A simple note-taking application built with React.
